@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yuliyan Georgiev - CV</title>
+
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #dbeafe, #fef9c3);
+      color: #1e293b;
+      line-height: 1.7;
+      padding: 40px 20px;
+      overflow-x: hidden;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: auto;
+      background: white;
+      padding: 50px;
+      border-radius: 20px;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+      animation: fadeSlide 0.8s ease-out both;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .header h1 {
+      font-size: 3em;
+      color: #0ea5e9;
+      background: linear-gradient(to right, #0ea5e9, #6366f1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .header h2 {
+      font-size: 1.4em;
+      color: #475569;
+      margin-top: 10px;
+      font-weight: 400;
+    }
+
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #0ea5e9;
+      color: white;
+      font-weight: 600;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 12px rgba(14, 165, 233, 0.5);
+      transition: background 0.3s ease;
+    }
+    .btn-download:hover {
+      background: #075ea7;
+    }
+
+    .contact {
+      text-align: center;
+      font-size: 0.95em;
+      color: #334155;
+      margin-bottom: 30px;
+    }
+
+    .contact a {
+      color: #2563eb;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: 500;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
+    }
+
+    .contact .info-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #f0f4f8;
+      padding: 12px;
+      border-radius: 8px;
+      margin: 5px;
+      font-size: 1.1em;
+    }
+
+    .section {
+      margin-bottom: 50px;
+    }
+
+    .section h3,
+    .section-title {
+      font-size: 1.5em;
+      color: #1d4ed8;
+      margin-bottom: 15px;
+      position: relative;
+    }
+
+    .section h3::after,
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: #60a5fa;
+      border-radius: 2px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .skill-grid,
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .skill {
+      background: #f1f5f9;
+      padding: 10px 15px;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: 600;
+      color: #0f172a;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s;
+      cursor: default;
+      user-select: none;
+    }
+
+    .skill:hover {
+      transform: translateY(-5px);
+      background: #dbeafe;
+    }
+
+    ul {
+      margin-left: 20px;
+      margin-top: 10px;
+      color: #334155;
+      font-weight: 500;
+    }
+
+    ul li {
+      margin-bottom: 8px;
+    }
+
+    @keyframes fadeSlide {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 25px;
+      }
+      .header h1 {
+        font-size: 2em;
+      }
+      .header h2 {
+        font-size: 1.1em;
+      }
+    }
+
+    a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="cv">
+    <div class="profile-photo profile-photo-top" data-aos="fade-down">
+    </div>
+    <header class="header" data-aos="fade-down">
+      <h1>Yuliyan Georgiev</h1>
+      <h2>Junior Database Developer • Plovdiv, Bulgaria</h2>
+    </header>
+
+    <button class="btn-download" id="downloadBtn" data-aos="fade-up">
+      <i class="fa-solid fa-download"></i> Download CV as PDF
+    </button>
+
+    <section class="contact section" data-aos="fade-up" data-aos-delay="100">
+      <h3 class="section-title">Contact</h3>
+      <div class="info-grid">
+        <div class="contact info-item"><i class="fa-solid fa-phone"></i> 0886753738</div>
+        <div class="contact info-item"><i class="fa-solid fa-envelope"></i> yuliyangit@gmail.com</div>
+        <div class="contact info-item">
+          <i class="fa-brands fa-linkedin"></i> 
+          <a href="https://linkedin.com/in/yuliyan-georgiev" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="summary section" data-aos="fade-up" data-aos-delay="200">
+      <h3 class="section-title">Summary</h3>
+      <p>
+        Disciplined and adaptable software developer with a strong ability to multitask and maintain a positive outlook. Proactive, efficient and focused on achieving high-quality results. Enjoys collaboration, thrives in dynamic environments, and is committed to continuous learning.
+      </p>
+    </section>
+
+    <section class="experience section" data-aos="fade-up" data-aos-delay="300">
+      <h3 class="section-title">Experience</h3>
+      <p><strong>Junior Database Developer</strong> – eDynamix (2024–Present), Stara Zagora, Bulgaria</p>
+      <ul>
+        <li>Designed and maintained relational databases and schemas.</li>
+        <li>Automated data workflows with T-SQL and SSIS.</li>
+        <li>Created SSRS reports and dashboards.</li>
+        <li>Performance tuning of stored procedures and queries.</li>
+      </ul>
+    </section>
+
+    <section class="skills section" data-aos="fade-up" data-aos-delay="400">
+      <h3 class="section-title">Tech Skills</h3>
+      <div class="skill-grid">
+        <div class="skill"><i class="fa-solid fa-database"></i> SQL / T-SQL</div>
+        <div class="skill"><i class="fa-solid fa-chart-simple"></i> SSMS / SSRS</div>
+        <div class="skill"><i class="fa-brands fa-square-js"></i> C#</div>
+        <div class="skill"><i class="fa-solid fa-code"></i> ASP.NET Core</div>
+        <div class="skill"><i class="fa-solid fa-layer-group"></i> MVC</div>
+        <div class="skill"><i class="fa-solid fa-vial"></i> Unit Testing</div>
+        <div class="skill"><i class="fa-brands fa-js"></i> JavaScript</div>
+        <div class="skill"><i class="fa-brands fa-node-js"></i> Node.js</div>
+        <div class="skill"><i class="fa-brands fa-html5"></i> HTML / CSS</div>
+        <div class="skill"><i class="fa-brands fa-git-alt"></i> Git</div>
+      </div>
+    </section>
+
+    <section class="education section" data-aos="fade-up" data-aos-delay="500">
+      <h3 class="section-title">Education</h3>
+      <ul>
+        <li><strong>Technical University of Sofia</strong> – Computer Systems and Technology (2023–Present)</li>
+        <li><strong>SoftUni</strong> – Software Developer C# (2021–2022)</li>
+        <li><strong>Vocational High School of Electrical Engineering – Plovdiv</strong> – Computer Technology (2018–2023)</li>
+      </ul>
+    </section>
+
+    <section class="soft-skills section" data-aos="fade-up" data-aos-delay="600">
+      <h3 class="section-title">Soft Skills</h3>
+      <div class="skill-grid">
+        <div class="skill">Self-Driven</div>
+        <div class="skill">Disciplined</div>
+        <div class="skill">Team-Oriented</div>
+        <div class="skill">Proactive</div>
+        <div class="skill">Multitasking</div>
+        <div class="skill">Adaptability</div>
+      </div>
+    </section>
+
+    <section class="languages section" data-aos="fade-up" data-aos-delay="700">
+      <h3 class="section-title">Languages</h3>
+      <p>Bulgarian – Native</p>
+      <p>English – Proficient</p>
+    </section>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 700,
+      once: true,
+    });
+  </script>
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+
+<script>
+    const { jsPDF } = window.jspdf;
+
+document.getElementById('downloadBtn').addEventListener('click', () => {
+    const doc = new jsPDF();
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const margin = 15;
+    const lineHeight = 9;
+    const colGap = 20;
+    const colWidth = ((pageWidth - margin * 2 - colGap) / 2) * 0.9; 
+
+    let yLeft = 20;
+    let yRight = 20;
+
+    function addTitle(text, x, y) {
+        doc.setFontSize(16);
+        doc.setTextColor('#1d4ed8');
+        doc.setFont('helvetica', 'bold');
+        doc.text(text, x, y);
+        y += 4;
+        doc.setDrawColor('#60a5fa');
+        doc.setLineWidth(1.5);
+        doc.line(x, y, x + 30, y);
+        y += 12; 
+        return y;
+    }
+
+    function addText(lines, x, y, maxWidth) {
+        doc.setFontSize(11);
+        doc.setFont('helvetica', 'normal');
+        doc.setTextColor('#111');
+        lines.forEach(line => {
+            if (y > 280) {
+                doc.addPage();
+                y = 20;
+            }
+            doc.text(doc.splitTextToSize(line, maxWidth), x, y);
+            y += lineHeight;
+        });
+        y += 10; 
+        return y;
+    }
+
+    // Add photo before everything else
+    const img = new Image();
+    img.src = 'cv_photo.png';
+    img.onload = function() {
+        // Draw the image at the top right corner
+        doc.addImage(img, 'PNG', pageWidth - margin - 35, 15, 30, 30);
+
+        doc.setFontSize(22);
+        doc.setFont('helvetica', 'bold');
+        doc.setTextColor('#0ea5e9');
+        doc.text('Yuliyan Georgiev', margin, yLeft);
+        yLeft += 10;
+
+        doc.setFontSize(14);
+        doc.setFont('helvetica', 'normal');
+        doc.setTextColor('#475569');
+        doc.text('Junior Database Developer • Plovdiv, Bulgaria', margin, yLeft);
+        yLeft += 20;
+        yLeft = 60;
+        yRight = 60;
+
+        yLeft = addTitle('Contact', margin, yLeft);
+        yLeft = addText([
+            'Phone: 0886753738',
+            'Email: yuliyangit@gmail.com',
+            'LinkedIn: linkedin.com/in/yuliyan-georgiev'
+        ], margin, yLeft, colWidth);
+
+        yLeft = addTitle('Tech Skills', margin, yLeft);
+        yLeft = addText([
+            'SQL / T-SQL, SSMS / SSRS, C#, ASP.NET Core, MVC, Unit Testing,',
+            'JavaScript, Node.js, HTML / CSS, Git'
+        ], margin, yLeft, colWidth);
+
+        yLeft = addTitle('Soft Skills', margin, yLeft);
+        yLeft = addText([
+            'Self-Driven, Disciplined, Team-Oriented, Proactive,',
+            'Multitasking, Adaptability'
+        ], margin, yLeft, colWidth);
+
+        yLeft = addTitle('Languages', margin, yLeft);
+        yLeft = addText([
+            'Bulgarian – Native',
+            'English – Proficient'
+        ], margin, yLeft, colWidth);
+
+        yRight = addTitle('Summary', margin + colWidth + colGap, yRight);
+        yRight = addText([
+            'Disciplined and adaptable software developer with a strong ability',
+            'to multitask and maintain a positive outlook. Proactive, efficient,',
+            'and focused on achieving high-quality results. Enjoys collaboration,',
+            'thrives in dynamic environments, and is committed to continuous learning.'
+        ], margin + colWidth + colGap, yRight, colWidth);
+
+        yRight = addTitle('Experience', margin + colWidth + colGap, yRight);
+        yRight = addText([
+            'Junior Database Developer – eDynamix (2024–Present), Stara Zagora',
+            '- Designed and maintained relational databases and schemas.',
+            '- Automated data workflows with T-SQL and SSIS.',
+            '- Created SSRS reports and dashboards.',
+            '- Performance tuning of stored procedures and queries.'
+        ], margin + colWidth + colGap, yRight, colWidth);
+
+        yRight = addTitle('Education', margin + colWidth + colGap, yRight);
+        yRight = addText([
+            'Technical University of Sofia – Computer Systems (2023–Present)',
+            'SoftUni – Software Developer C# (2021–2022)',
+            'Vocational HS of Electrical Engineering – Plovdiv (2018–2023)'
+        ], margin + colWidth + colGap, yRight, colWidth);
+
+        doc.save('Yuliyan-Georgiev-CV.pdf');
+    };
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+/* -------- Общи настройки -------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #dbeafe, #fef9c3);
+  color: #1e293b;
+  line-height: 1.7;
+  padding: 40px 20px;
+  overflow-x: hidden;
+}
+
+/* -------- Контейнер -------- */
+.container {
+  max-width: 960px;
+  margin: auto;
+  background: white;
+  padding: 50px;
+  border-radius: 20px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+  animation: fadeSlide 0.8s ease-out both;
+  position: relative;
+  overflow: hidden;
+}
+
+/* -------- Заглавие -------- */
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 3em;
+  color: #0ea5e9;
+  background: linear-gradient(to right, #0ea5e9, #6366f1);
+  -webkit-text-fill-color: transparent;
+}
+
+.header h2 {
+  font-size: 1.4em;
+  color: #475569;
+  margin-top: 10px;
+  font-weight: 400;
+}
+
+/* -------- Контактна информация -------- */
+.contact {
+  text-align: center;
+  font-size: 0.95em;
+  color: #334155;
+  margin-bottom: 30px;
+}
+
+.contact a {
+  color: #2563eb;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: 500;
+}
+
+.contact a:hover {
+  text-decoration: underline;
+}
+
+/* -------- Секции -------- */
+.section {
+  margin-bottom: 50px;
+}
+
+.section h3 {
+  font-size: 1.5em;
+  color: #1d4ed8;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.section h3::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: #60a5fa;
+  border-radius: 2px;
+}
+
+/* -------- Умения като мрежа -------- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.skill {
+  background: #f1f5f9;
+  padding: 10px 15px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 600;
+  color: #0f172a;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+}
+
+.skill:hover {
+  transform: translateY(-5px);
+  background: #dbeafe;
+}
+
+/* -------- Профилна снимка -------- */
+.profile-photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.profile-photo.profile-photo-top {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  z-index: 10;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.profile-photo.profile-photo-top img {
+  width: 36px !important;
+  height: 36px !important;
+  max-width: 36px !important;
+  max-height: 36px !important;
+  min-width: 36px !important;
+  min-height: 36px !important;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #60a5fa;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+  transition: box-shadow 0.2s;
+  display: block;
+}
+
+/* -------- Анимации -------- */
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* -------- Респонсив -------- */
+@media (max-width: 640px) {
+  .container {
+    padding: 25px;
+  }
+  .header h1 {
+    font-size: 2em;
+  }
+  .header h2 {
+    font-size: 1.1em;
+  }
+}
+@media print {
+  .btn-download {
+    display: none !important;
+  }
+}
+.section {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+@media print {
+  body, .container {
+    background: #fff !important;
+    box-shadow: none !important;
+  }
+}
+.section {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+p, ul, .skill-grid, .info-grid {
+  page-break-inside: avoid;
+}
