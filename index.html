@@ -18,6 +18,8 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+    html, body {
       scroll-behavior: smooth;
     }
     body {
@@ -148,9 +150,10 @@
       display: none;
     }
     .container {
-      margin-left: 300px;
+      /* margin-left: 300px; */ /* премахни или закоментирай този ред */
       width: 100%;
       max-width: 900px;
+      margin: 0 auto; /* добави този ред за центриране */
     }
     .header {
       text-align: center;
@@ -300,30 +303,32 @@
       width: 100%;
       perspective: 1000px;
       margin-bottom: 40px;
-      min-height: 220px;
       position: relative;
+      min-height: unset;
+      height: auto;
+      transition: z-index 0.2s;
     }
     .flip-card-inner {
       position: relative;
       width: 100%;
-      height: 100%;
       min-height: 220px;
+      height: auto;
       transition: transform 0.7s cubic-bezier(.4,2.3,.3,1);
       transform-style: preserve-3d;
-    }
-    .flip-card-front, .flip-card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      border-radius: 14px;
-      top: 0;
-      left: 0;
-      box-sizing: border-box;
-      padding: 24px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+    }
+    .flip-card-front,
+    .flip-card-back {
+      position: relative;
+      width: 100%;
+      backface-visibility: hidden;
+      border-radius: 14px;
+      box-sizing: border-box;
+      padding: 24px;
+      display: block;
+      /* Remove absolute positioning and height */
+      min-height: 220px;
     }
     .flip-card-front {
       background: #f8fafc;
@@ -335,10 +340,100 @@
       background: #dbeafe;
       color: #1d4ed8;
       z-index: 1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding-top: 40px; /* или колкото е нужно */
     }
     .flip-card:hover .flip-card-inner,
     .flip-card:focus-within .flip-card-inner {
       transform: rotateX(180deg);
+    }
+    .flip-card:hover,
+    .flip-card:focus-within {
+      z-index: 10;
+      margin-top: -60px; /* или колкото е нужно, за да се "приплъзне" нагоре */
+    }
+    .flip-card-inner {
+      /* Let the height grow with content */
+      height: auto;
+    }
+    .contact-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 18px;
+      font-size: 1.1em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 2px 8px rgba(37,99,235,0.08);
+      margin: 5px 0;
+      width: 100%;
+      justify-content: center;
+    }
+    .contact-btn:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px) scale(1.03);
+    }
+    .contact-btn .btn-label {
+      display: none;
+      font-size: 1.1em;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .contact-btn .btn-icon {
+      display: inline-block;
+      font-size: 1.3em;
+      transition: opacity 0.2s;
+    }
+
+    #contacts .contact-btn {
+      justify-content: center;
+      width: 100%;
+      min-width: 0;
+      padding: 14px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    /* Показвай само иконата по подразбиране */
+    #contacts .contact-btn .btn-icon {
+      display: inline-block;
+    }
+    #contacts .contact-btn .btn-label {
+      display: none;
+    }
+
+    /* При hover на бутона - скрий иконата, покажи текста */
+    #contacts .contact-btn:hover .btn-icon,
+    #contacts .contact-btn:focus .btn-icon {
+      display: none;
+    }
+    #contacts .contact-btn:hover .btn-label,
+    #contacts .contact-btn:focus .btn-label {
+      display: inline-block;
+    }
+    .flip-card-back ul ul {
+      background: none;
+      padding: 0 0 0 18px;
+      margin: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+    .flip-card-back ul ul li {
+      background: none;
+      color: #2563eb;
+      font-weight: 400;
+      margin-bottom: 4px;
+      font-size: 1em;
+      padding: 0;
     }
     @media (max-width: 900px) {
       #sideMenu { display: none; }
@@ -374,44 +469,52 @@
       <li><a href="#education"><i class="fa-solid fa-graduation-cap"></i> Education</a></li>
       <li><a href="#soft-skills"><i class="fa-solid fa-heart"></i> Soft Skills</a></li>
       <li><a href="#languages"><i class="fa-solid fa-language"></i> Languages</a></li>
+      <li><a href="#contacts"><i class="fa-solid fa-address-card"></i> Find Me On</a></li>
     </ul>
     <button class="side-download-btn" id="sideDownloadBtn">
       <i class="fa-solid fa-download"></i> Download CV
     </button>
   </div>
   <div class="container" id="cv">
-    <header class="header" data-aos="fade-down">
-      <h1>Yuliyan Georgiev</h1>
-      <h2>Junior Database Developer • Plovdiv, Bulgaria</h2>
+    <header class="header" data-aos="fade-down" style="display: flex; align-items: center; justify-content: center; gap: 48px; margin-bottom: 40px; flex-wrap: wrap;">
+      <div style="flex-shrink:0; display:flex; align-items:center;">
+        <img src="cv_photo.png" alt="Yuliyan Georgiev" style="width:130px;height:130px;object-fit:cover;border-radius:50%;box-shadow:0 2px 25px #60a5fa55;">
+      </div>
+      <div style="flex:1; min-width:280px; display:flex; flex-direction:column; justify-content:center;">
+        <h1 style="font-size:3em; font-weight:300; color:#3b82f6; margin-bottom:10px; line-height:1.1; text-align:left;">
+          Hi, I'm <span style="color:#2563eb; font-weight:700;">Yuliyan Georgiev!</span>
+        </h1>
+        <div style="height:3px; width:100%; max-width:600px; background:#38bdf8; margin:12px 0 18px 0; border-radius:2px;"></div>
+        <h2 style="font-size:1.7em; color:#64748b; font-weight:400; margin-bottom:10px; text-align:left;">
+          Junior Database Developer
+        </h2>
+        <p style="color:#475569; font-size:1.18em; text-align:left; max-width:600px;">
+          I'm a passionate junior developer based in Plovdiv, Bulgaria. Love playing video games, listening to music and spending time with friends and family.
+        </p>
+        <div class="welcome-msg" style="margin-top:18px;font-size:1.25em;color:#2563eb;font-weight:700; text-align:left;">
+          Welcome to Yuliyan's CV
+        </div>
+      </div>
     </header>
     <div class="download-fab" id="downloadBtn">
       <i class="fa-solid fa-download"></i>
       <span class="fab-label">Download CV as PDF</span>
     </div>
-    <section class="contact section" data-aos="fade-up" data-aos-delay="100">
-      <h3 class="section-title">Contact</h3>
-      <div class="info-grid">
-        <div class="contact info-item"><i class="fa-solid fa-phone"></i> +3596753738</div>
-        <div class="contact info-item"><i class="fa-solid fa-envelope"></i> yuliyangit@gmail.com</div>
-        <div class="contact info-item">
-          <i class="fa-brands fa-linkedin"></i>
-          <a href="https://linkedin.com/in/yuliyan-georgiev" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        </div>
-      </div>
+  
     </section>
     <!-- Summary -->
     <section id="summary" class="section">
       <div class="flip-card" data-aos="fade-up">
         <div class="flip-card-inner">
           <div class="flip-card-front card">
+            <h3>Summary</h3>
+            <p>Ready for new challenges!</p>
+          </div>
+          <div class="flip-card-back card">
             <h3 class="section-title">Summary</h3>
             <p>
               Disciplined and adaptable software developer with a strong ability to multitask and maintain a positive outlook. Proactive, efficient and focused on achieving high-quality results. Enjoys collaboration, thrives in dynamic environments, and is committed to continuous learning.
             </p>
-          </div>
-          <div class="flip-card-back card">
-            <h3>Summary</h3>
-            <p>Ready for new challenges!</p>
           </div>
         </div>
       </div>
@@ -421,18 +524,17 @@
       <div class="flip-card" data-aos="fade-up" data-aos-delay="100">
         <div class="flip-card-inner">
           <div class="flip-card-front card">
-            <h3 class="section-title">Experience</h3>
-            <p><strong>Junior Database Developer</strong> – eDynamix (2024–Present), Stara Zagora, Bulgaria</p>
-            <ul>
-              <li>Designed and maintained relational databases and schemas.</li>
-              <li>Automated data workflows with T-SQL and SSIS.</li>
-              <li>Created SSRS reports and dashboards.</li>
-              <li>Performance tuning of stored procedures and queries.</li>
-            </ul>
-          </div>
-          <div class="flip-card-back card">
             <h3>Experience</h3>
             <p>Always learning and growing in my field!</p>
+          </div>
+          <div class="flip-card-back card">
+            <h3 class="section-title">Experience</h3>
+            <p><strong>eDynamix</strong> (2024–Present) – Junior Database Developer, Stara Zagora, Bulgaria</p>
+            <ul>
+              <li>As a Junior Database Developer, I have been responsible for designing, optimizing, and maintaining relational databases to support business operations and reporting. My role involves writing complex SQL queries, stored procedures, and functions to manage and manipulate large datasets efficiently. I have worked on database performance tuning, ensuring data integrity, and automating workflows using T-SQL scripts and SSIS packages. • Created and maintained database schemas, tables, indexes, and relationships to ensure data consistency.</li>
+              <li>Automated data processing workflows using T-SQL scripts and triggers.</li>
+              <li>Created and maintained reports and dashboards using SSRS. • Designed and optimized T-SQL queries, stored procedures, and functions to improve database performance.</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -442,6 +544,10 @@
       <div class="flip-card" data-aos="fade-up" data-aos-delay="200">
         <div class="flip-card-inner">
           <div class="flip-card-front card">
+            <h3>Tech Skills</h3>
+            <p>Constantly expanding my technical stack!</p>
+          </div>
+          <div class="flip-card-back card">
             <h3 class="section-title">Tech Skills</h3>
             <div class="skill-grid">
               <div class="skill"><i class="fa-solid fa-database"></i> SQL / T-SQL</div>
@@ -456,10 +562,6 @@
               <div class="skill"><i class="fa-brands fa-git-alt"></i> Git</div>
             </div>
           </div>
-          <div class="flip-card-back card">
-            <h3>Tech Skills</h3>
-            <p>Constantly expanding my technical stack!</p>
-          </div>
         </div>
       </div>
     </section>
@@ -468,16 +570,31 @@
       <div class="flip-card" data-aos="fade-up" data-aos-delay="300">
         <div class="flip-card-inner">
           <div class="flip-card-front card">
+            <h3>Education</h3>
+            <p>Learning never stops!</p>
+          </div>
+          <div class="flip-card-back card">
             <h3 class="section-title">Education</h3>
             <ul>
               <li><strong>Technical University of Sofia</strong> – Computer Systems and Technology (2023–Present)</li>
-              <li><strong>SoftUni</strong> – Software Developer C# (2021–2022)</li>
+              <li>
+                <strong>SoftUni</strong> – Software Developer C# (2021 March - 2022 October)
+                <ul>
+                 <li>Programming Basics with C# - Certificate</li>
+                  <li>Programming Fundamentals with C# - Certificate</li>
+                  <li>Advanced C# - Certificate</li>
+                  <li>MS SQL - Certificate</li>
+                  <li>JS Advanced</li>
+                  <li>JS Aplications</li>
+                  <li>Entity Framework Core</li>
+                  <li>MS SQL - Certificate</li>
+                  <li>ASP.NET Fundamentals - Certificate</li>
+                  <li>ASP.NET Advanced</li>
+                </ul>
+              </li>
+              <li><strong>Telerik</strong> - Game Development with Phaser(2018)</li>
               <li><strong>Vocational High School of Electrical Engineering – Plovdiv</strong> – Computer Technology (2018–2023)</li>
             </ul>
-          </div>
-          <div class="flip-card-back card">
-            <h3>Education</h3>
-            <p>Learning never stops!</p>
           </div>
         </div>
       </div>
@@ -487,6 +604,10 @@
       <div class="flip-card" data-aos="fade-up" data-aos-delay="400">
         <div class="flip-card-inner">
           <div class="flip-card-front card">
+            <h3>Soft Skills</h3>
+            <p>People skills matter!</p>
+          </div>
+          <div class="flip-card-back card">
             <h3 class="section-title">Soft Skills</h3>
             <div class="skill-grid">
               <div class="skill">Self-Driven</div>
@@ -497,10 +618,6 @@
               <div class="skill">Adaptability</div>
             </div>
           </div>
-          <div class="flip-card-back card">
-            <h3>Soft Skills</h3>
-            <p>People skills matter!</p>
-          </div>
         </div>
       </div>
     </section>
@@ -509,13 +626,43 @@
       <div class="flip-card" data-aos="fade-up" data-aos-delay="500">
         <div class="flip-card-inner">
           <div class="flip-card-front card">
+            <h3>Languages</h3>
+            <p>Communication is key!</p>
+          </div>
+          <div class="flip-card-back card">
             <h3 class="section-title">Languages</h3>
             <p>Bulgarian – Native</p>
             <p>English – Proficient</p>
           </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contacts -->
+    <section id="contacts" class="section">
+      <div class="flip-card" data-aos="fade-up" data-aos-delay="600">
+        <div class="flip-card-inner">
+          <div class="flip-card-front card">
+            <h3>Find Me On</h3>
+            <p>Let's connect!</p>
+          </div>
           <div class="flip-card-back card">
-            <h3>Languages</h3>
-            <p>Communication is key!</p>
+            <h3 class="section-title">Find Me On</h3>
+            <div class="info-grid" style="margin-top:20px;">
+              <button class="contact-btn" onclick="window.open('tel:+359886753738')">
+                <span class="btn-icon"><i class="fa-solid fa-phone"></i></span>
+                <span class="btn-label">+3596753738</span>
+              </button>
+              <button class="contact-btn" onclick="window.open('mailto:yuliyangit@gmail.com')">
+                <span class="btn-icon"><i class="fa-solid fa-envelope"></i></span>
+                <span class="btn-label">yuliyangit@gmail.com</span>
+              </button>
+              <button class="contact-btn" onclick="window.open('https://linkedin.com/in/yuliyan-georgiev','_blank')">
+                <i class="fa-brands fa-linkedin"></i> LinkedIn
+              </button>
+              <button class="contact-btn" onclick="window.open('https://github.com/yuliyanIT','_blank')">
+                <i class="fa-brands fa-github"></i> GitHub
+              </button>
+            </div>
           </div>
         </div>
       </div>
