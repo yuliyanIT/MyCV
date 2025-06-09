@@ -6,14 +6,11 @@
   <title>Yuliyan Georgiev - CV</title>
 
   <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-  crossorigin="anonymous"
-  referrerpolicy="no-referrer"
-/>
-
-
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
 
   <style>
@@ -23,7 +20,6 @@
       box-sizing: border-box;
       scroll-behavior: smooth;
     }
-
     body {
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(135deg, #dbeafe, #fef9c3);
@@ -32,26 +28,134 @@
       padding: 40px 20px;
       overflow-x: hidden;
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
+      align-items: flex-start;
     }
-
+    #sideMenu {
+      min-width: 270px;
+      max-width: 290px;
+      height: 100vh;
+      position: fixed;
+      left: 0;
+      top: 0;
+      border-radius: 0 18px 18px 0;
+      background: #18181b;
+      color: #fff;
+      z-index: 300;
+      box-shadow: 2px 0 24px rgba(0,0,0,0.18);
+      padding: 32px 24px 24px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      transition: transform 0.4s cubic-bezier(.4,2.3,.3,1);
+    }
+    #sideMenu.closed {
+      transform: translateX(-100%);
+    }
+    .side-menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .side-menu-title {
+      font-size: 1.3em;
+      font-weight: 700;
+      letter-spacing: 1px;
+      border: 1px solid #fff2;
+      padding: 6px 12px;
+      border-radius: 6px;
+    }
+    .close-btn {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 2em;
+      cursor: pointer;
+      margin-left: 10px;
+      display: none;
+    }
+    #sideMenu:not(.closed) .close-btn {
+      display: block;
+    }
+    .side-menu-role {
+      font-size: 1em;
+      color: #a3a3a3;
+      margin-bottom: 10px;
+    }
+    #sideMenu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      flex: 1;
+    }
+    #sideMenu li {
+      margin: 18px 0;
+    }
+    #sideMenu a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1em;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: color 0.2s;
+    }
+    #sideMenu a:hover {
+      color: #0ea5e9;
+    }
+    .side-download-btn {
+      width: 100%;
+      background: transparent;
+      border: 1.5px solid #fff;
+      color: #fff;
+      padding: 12px 0;
+      border-radius: 6px;
+      font-size: 1em;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .side-download-btn:hover {
+      background: #0ea5e9;
+      color: #fff;
+      border-color: #0ea5e9;
+    }
+    .menu-toggle {
+      position: fixed;
+      top: 32px;
+      left: 32px;
+      background: #232323;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 18px;
+      font-size: 1em;
+      font-weight: 600;
+      z-index: 350;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: background 0.2s;
+    }
+    .menu-toggle:hover {
+      background: #0ea5e9;
+    }
+    #sideMenu:not(.closed) ~ .menu-toggle {
+      display: none;
+    }
     .container {
-      max-width: 960px;
-      margin: auto;
-      background: white;
-      padding: 50px;
-      border-radius: 20px;
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
-      animation: fadeSlide 0.8s ease-out both;
-      position: relative;
-      overflow: hidden;
+      margin-left: 300px;
+      width: 100%;
+      max-width: 900px;
     }
-
     .header {
       text-align: center;
       margin-bottom: 40px;
     }
-
     .header h1 {
       font-size: 3em;
       color: #0ea5e9;
@@ -59,51 +163,68 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-
     .header h2 {
       font-size: 1.4em;
       color: #475569;
       margin-top: 10px;
       font-weight: 400;
     }
-
-    .btn-download {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+    .download-fab {
+      position: fixed;
+      top: 32px;
+      right: 32px;
       background: #0ea5e9;
-      color: white;
-      font-weight: 600;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 10px;
+      color: #fff;
+      border-radius: 50%;
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(14,165,233,0.18);
       cursor: pointer;
-      margin-bottom: 40px;
-      box-shadow: 0 4px 12px rgba(14, 165, 233, 0.5);
-      transition: background 0.3s ease;
+      z-index: 200;
+      transition: background 0.2s;
     }
-    .btn-download:hover {
+    .download-fab:hover {
       background: #075ea7;
     }
-
+    .fab-label {
+      position: absolute;
+      right: 60px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #0ea5e9;
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: 8px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s, right 0.2s;
+      font-weight: 600;
+      font-size: 1em;
+      box-shadow: 0 2px 8px rgba(14,165,233,0.13);
+    }
+    .download-fab:hover .fab-label {
+      opacity: 1;
+      right: 70px;
+    }
     .contact {
       text-align: center;
       font-size: 0.95em;
       color: #334155;
       margin-bottom: 30px;
     }
-
     .contact a {
       color: #2563eb;
       text-decoration: none;
       margin: 0 10px;
       font-weight: 500;
     }
-
     .contact a:hover {
       text-decoration: underline;
     }
-
     .contact .info-item {
       display: flex;
       align-items: center;
@@ -115,11 +236,9 @@
       margin: 5px;
       font-size: 1.1em;
     }
-
     .section {
       margin-bottom: 50px;
     }
-
     .section h3,
     .section-title {
       font-size: 1.5em;
@@ -127,7 +246,6 @@
       margin-bottom: 15px;
       position: relative;
     }
-
     .section h3::after,
     .section-title::after {
       content: '';
@@ -139,14 +257,12 @@
       background: #60a5fa;
       border-radius: 2px;
     }
-
     .info-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
       gap: 10px;
       margin-top: 10px;
     }
-
     .skill-grid,
     .skills-grid {
       display: grid;
@@ -154,7 +270,6 @@
       gap: 15px;
       margin-top: 10px;
     }
-
     .skill {
       background: #f1f5f9;
       padding: 10px 15px;
@@ -167,34 +282,68 @@
       cursor: default;
       user-select: none;
     }
-
     .skill:hover {
       transform: translateY(-5px);
       background: #dbeafe;
     }
-
     ul {
       margin-left: 20px;
       margin-top: 10px;
       color: #334155;
       font-weight: 500;
     }
-
     ul li {
       margin-bottom: 8px;
     }
-
-    @keyframes fadeSlide {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .flip-card {
+      background: transparent;
+      width: 100%;
+      perspective: 1000px;
+      margin-bottom: 40px;
+      min-height: 220px;
+      position: relative;
     }
-
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 220px;
+      transition: transform 0.7s cubic-bezier(.4,2.3,.3,1);
+      transform-style: preserve-3d;
+    }
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 14px;
+      top: 0;
+      left: 0;
+      box-sizing: border-box;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .flip-card-front {
+      background: #f8fafc;
+      color: #1e293b;
+      z-index: 2;
+    }
+    .flip-card-back {
+      transform: rotateX(180deg);
+      background: #dbeafe;
+      color: #1d4ed8;
+      z-index: 1;
+    }
+    .flip-card:hover .flip-card-inner,
+    .flip-card:focus-within .flip-card-inner {
+      transform: rotateX(180deg);
+    }
+    @media (max-width: 900px) {
+      #sideMenu { display: none; }
+      .container { margin-left: 0; }
+    }
     @media (max-width: 640px) {
       .container {
         padding: 25px;
@@ -206,104 +355,172 @@
         font-size: 1.1em;
       }
     }
-
-    a {
-      color: #2563eb;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
   </style>
 </head>
 <body>
-  <div class="container" id="cv">
-    <div class="profile-photo profile-photo-top" data-aos="fade-down">
+  <button id="menuToggle" class="menu-toggle" onclick="toggleMenu()">
+    <i class="fa-solid fa-bars"></i> MENU
+  </button>
+  <div id="sideMenu" class="side-menu-vertical closed">
+    <div class="side-menu-header">
+      <span class="side-menu-title">Yuliyan Georgiev</span>
+      <button class="close-btn" onclick="toggleMenu()" id="closeMenuBtn">&times;</button>
     </div>
+    <div class="side-menu-role">Junior Database Developer</div>
+    <ul>
+      <li><a href="#summary"><i class="fa-solid fa-user"></i> Summary</a></li>
+      <li><a href="#experience"><i class="fa-solid fa-briefcase"></i> Experience</a></li>
+      <li><a href="#skills"><i class="fa-solid fa-laptop-code"></i> Tech Skills</a></li>
+      <li><a href="#education"><i class="fa-solid fa-graduation-cap"></i> Education</a></li>
+      <li><a href="#soft-skills"><i class="fa-solid fa-heart"></i> Soft Skills</a></li>
+      <li><a href="#languages"><i class="fa-solid fa-language"></i> Languages</a></li>
+    </ul>
+    <button class="side-download-btn" id="sideDownloadBtn">
+      <i class="fa-solid fa-download"></i> Download CV
+    </button>
+  </div>
+  <div class="container" id="cv">
     <header class="header" data-aos="fade-down">
       <h1>Yuliyan Georgiev</h1>
       <h2>Junior Database Developer • Plovdiv, Bulgaria</h2>
     </header>
-
-    <button class="btn-download" id="downloadBtn" data-aos="fade-up">
-      <i class="fa-solid fa-download"></i> Download CV as PDF
-    </button>
-
+    <div class="download-fab" id="downloadBtn">
+      <i class="fa-solid fa-download"></i>
+      <span class="fab-label">Download CV as PDF</span>
+    </div>
     <section class="contact section" data-aos="fade-up" data-aos-delay="100">
       <h3 class="section-title">Contact</h3>
       <div class="info-grid">
-        <div class="contact info-item"><i class="fa-solid fa-phone"></i> 0886753738</div>
+        <div class="contact info-item"><i class="fa-solid fa-phone"></i> +3596753738</div>
         <div class="contact info-item"><i class="fa-solid fa-envelope"></i> yuliyangit@gmail.com</div>
         <div class="contact info-item">
-          <i class="fa-brands fa-linkedin"></i> 
+          <i class="fa-brands fa-linkedin"></i>
           <a href="https://linkedin.com/in/yuliyan-georgiev" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
       </div>
     </section>
-
-    <section class="summary section" data-aos="fade-up" data-aos-delay="200">
-      <h3 class="section-title">Summary</h3>
-      <p>
-        Disciplined and adaptable software developer with a strong ability to multitask and maintain a positive outlook. Proactive, efficient and focused on achieving high-quality results. Enjoys collaboration, thrives in dynamic environments, and is committed to continuous learning.
-      </p>
-    </section>
-
-    <section class="experience section" data-aos="fade-up" data-aos-delay="300">
-      <h3 class="section-title">Experience</h3>
-      <p><strong>Junior Database Developer</strong> – eDynamix (2024–Present), Stara Zagora, Bulgaria</p>
-      <ul>
-        <li>Designed and maintained relational databases and schemas.</li>
-        <li>Automated data workflows with T-SQL and SSIS.</li>
-        <li>Created SSRS reports and dashboards.</li>
-        <li>Performance tuning of stored procedures and queries.</li>
-      </ul>
-    </section>
-
-    <section class="skills section" data-aos="fade-up" data-aos-delay="400">
-      <h3 class="section-title">Tech Skills</h3>
-      <div class="skill-grid">
-        <div class="skill"><i class="fa-solid fa-database"></i> SQL / T-SQL</div>
-        <div class="skill"><i class="fa-solid fa-chart-simple"></i> SSMS / SSRS</div>
-        <div class="skill"><i class="fa-brands fa-square-js"></i> C#</div>
-        <div class="skill"><i class="fa-solid fa-code"></i> ASP.NET Core</div>
-        <div class="skill"><i class="fa-solid fa-layer-group"></i> MVC</div>
-        <div class="skill"><i class="fa-solid fa-vial"></i> Unit Testing</div>
-        <div class="skill"><i class="fa-brands fa-js"></i> JavaScript</div>
-        <div class="skill"><i class="fa-brands fa-node-js"></i> Node.js</div>
-        <div class="skill"><i class="fa-brands fa-html5"></i> HTML / CSS</div>
-        <div class="skill"><i class="fa-brands fa-git-alt"></i> Git</div>
+    <!-- Summary -->
+    <section id="summary" class="section">
+      <div class="flip-card" data-aos="fade-up">
+        <div class="flip-card-inner">
+          <div class="flip-card-front card">
+            <h3 class="section-title">Summary</h3>
+            <p>
+              Disciplined and adaptable software developer with a strong ability to multitask and maintain a positive outlook. Proactive, efficient and focused on achieving high-quality results. Enjoys collaboration, thrives in dynamic environments, and is committed to continuous learning.
+            </p>
+          </div>
+          <div class="flip-card-back card">
+            <h3>Summary</h3>
+            <p>Ready for new challenges!</p>
+          </div>
+        </div>
       </div>
     </section>
-
-    <section class="education section" data-aos="fade-up" data-aos-delay="500">
-      <h3 class="section-title">Education</h3>
-      <ul>
-        <li><strong>Technical University of Sofia</strong> – Computer Systems and Technology (2023–Present)</li>
-        <li><strong>SoftUni</strong> – Software Developer C# (2021–2022)</li>
-        <li><strong>Vocational High School of Electrical Engineering – Plovdiv</strong> – Computer Technology (2018–2023)</li>
-      </ul>
-    </section>
-
-    <section class="soft-skills section" data-aos="fade-up" data-aos-delay="600">
-      <h3 class="section-title">Soft Skills</h3>
-      <div class="skill-grid">
-        <div class="skill">Self-Driven</div>
-        <div class="skill">Disciplined</div>
-        <div class="skill">Team-Oriented</div>
-        <div class="skill">Proactive</div>
-        <div class="skill">Multitasking</div>
-        <div class="skill">Adaptability</div>
+    <!-- Experience -->
+    <section id="experience" class="section">
+      <div class="flip-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="flip-card-inner">
+          <div class="flip-card-front card">
+            <h3 class="section-title">Experience</h3>
+            <p><strong>Junior Database Developer</strong> – eDynamix (2024–Present), Stara Zagora, Bulgaria</p>
+            <ul>
+              <li>Designed and maintained relational databases and schemas.</li>
+              <li>Automated data workflows with T-SQL and SSIS.</li>
+              <li>Created SSRS reports and dashboards.</li>
+              <li>Performance tuning of stored procedures and queries.</li>
+            </ul>
+          </div>
+          <div class="flip-card-back card">
+            <h3>Experience</h3>
+            <p>Always learning and growing in my field!</p>
+          </div>
+        </div>
       </div>
     </section>
-
-    <section class="languages section" data-aos="fade-up" data-aos-delay="700">
-      <h3 class="section-title">Languages</h3>
-      <p>Bulgarian – Native</p>
-      <p>English – Proficient</p>
+    <!-- Tech Skills -->
+    <section id="skills" class="section">
+      <div class="flip-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="flip-card-inner">
+          <div class="flip-card-front card">
+            <h3 class="section-title">Tech Skills</h3>
+            <div class="skill-grid">
+              <div class="skill"><i class="fa-solid fa-database"></i> SQL / T-SQL</div>
+              <div class="skill"><i class="fa-solid fa-chart-simple"></i> SSMS / SSRS</div>
+              <div class="skill"><i class="fa-brands fa-square-js"></i> C#</div>
+              <div class="skill"><i class="fa-solid fa-code"></i> ASP.NET Core</div>
+              <div class="skill"><i class="fa-solid fa-layer-group"></i> MVC</div>
+              <div class="skill"><i class="fa-solid fa-vial"></i> Unit Testing</div>
+              <div class="skill"><i class="fa-brands fa-js"></i> JavaScript</div>
+              <div class="skill"><i class="fa-brands fa-node-js"></i> Node.js</div>
+              <div class="skill"><i class="fa-brands fa-html5"></i> HTML / CSS</div>
+              <div class="skill"><i class="fa-brands fa-git-alt"></i> Git</div>
+            </div>
+          </div>
+          <div class="flip-card-back card">
+            <h3>Tech Skills</h3>
+            <p>Constantly expanding my technical stack!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Education -->
+    <section id="education" class="section">
+      <div class="flip-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="flip-card-inner">
+          <div class="flip-card-front card">
+            <h3 class="section-title">Education</h3>
+            <ul>
+              <li><strong>Technical University of Sofia</strong> – Computer Systems and Technology (2023–Present)</li>
+              <li><strong>SoftUni</strong> – Software Developer C# (2021–2022)</li>
+              <li><strong>Vocational High School of Electrical Engineering – Plovdiv</strong> – Computer Technology (2018–2023)</li>
+            </ul>
+          </div>
+          <div class="flip-card-back card">
+            <h3>Education</h3>
+            <p>Learning never stops!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Soft Skills -->
+    <section id="soft-skills" class="section">
+      <div class="flip-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="flip-card-inner">
+          <div class="flip-card-front card">
+            <h3 class="section-title">Soft Skills</h3>
+            <div class="skill-grid">
+              <div class="skill">Self-Driven</div>
+              <div class="skill">Disciplined</div>
+              <div class="skill">Team-Oriented</div>
+              <div class="skill">Proactive</div>
+              <div class="skill">Multitasking</div>
+              <div class="skill">Adaptability</div>
+            </div>
+          </div>
+          <div class="flip-card-back card">
+            <h3>Soft Skills</h3>
+            <p>People skills matter!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Languages -->
+    <section id="languages" class="section">
+      <div class="flip-card" data-aos="fade-up" data-aos-delay="500">
+        <div class="flip-card-inner">
+          <div class="flip-card-front card">
+            <h3 class="section-title">Languages</h3>
+            <p>Bulgarian – Native</p>
+            <p>English – Proficient</p>
+          </div>
+          <div class="flip-card-back card">
+            <h3>Languages</h3>
+            <p>Communication is key!</p>
+          </div>
+        </div>
+      </div>
     </section>
   </div>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
     AOS.init({
@@ -311,27 +528,21 @@
       once: true,
     });
   </script>
-
- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-
-
-<script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script>
     const { jsPDF } = window.jspdf;
-
-document.getElementById('downloadBtn').addEventListener('click', () => {
-    const doc = new jsPDF();
-    const pageWidth = doc.internal.pageSize.getWidth();
-    const margin = 15;
-    const lineHeight = 9;
-    const colGap = 20;
-    const colWidth = ((pageWidth - margin * 2 - colGap) / 2) * 0.9; 
-
-    let yLeft = 20;
-    let yRight = 20;
-
-    function addTitle(text, x, y) {
+    document.getElementById('downloadBtn').addEventListener('click', () => {
+      const doc = new jsPDF();
+      const pageWidth = doc.internal.pageSize.getWidth();
+      const margin = 15;
+      const lineHeight = 9;
+      const colGap = 20;
+      const colWidth = ((pageWidth - margin * 2 - colGap) / 2) * 0.9;
+      let yLeft = 20;
+      let yRight = 20;
+      function addTitle(text, x, y) {
         doc.setFontSize(16);
         doc.setTextColor('#1d4ed8');
         doc.setFont('helvetica', 'bold');
@@ -340,39 +551,33 @@ document.getElementById('downloadBtn').addEventListener('click', () => {
         doc.setDrawColor('#60a5fa');
         doc.setLineWidth(1.5);
         doc.line(x, y, x + 30, y);
-        y += 12; 
+        y += 12;
         return y;
-    }
-
-    function addText(lines, x, y, maxWidth) {
+      }
+      function addText(lines, x, y, maxWidth) {
         doc.setFontSize(11);
         doc.setFont('helvetica', 'normal');
         doc.setTextColor('#111');
         lines.forEach(line => {
-            if (y > 280) {
-                doc.addPage();
-                y = 20;
-            }
-            doc.text(doc.splitTextToSize(line, maxWidth), x, y);
-            y += lineHeight;
+          if (y > 280) {
+            doc.addPage();
+            y = 20;
+          }
+          doc.text(doc.splitTextToSize(line, maxWidth), x, y);
+          y += lineHeight;
         });
-        y += 10; 
+        y += 10;
         return y;
-    }
-
-    // Add photo before everything else
-    const img = new Image();
-    img.src = 'cv_photo.png';
-    img.onload = function() {
-        // Draw the image at the top right corner
+      }
+      const img = new Image();
+      img.src = 'cv_photo.png';
+      img.onload = function() {
         doc.addImage(img, 'PNG', pageWidth - margin - 35, 15, 30, 30);
-
         doc.setFontSize(22);
         doc.setFont('helvetica', 'bold');
         doc.setTextColor('#0ea5e9');
         doc.text('Yuliyan Georgiev', margin, yLeft);
         yLeft += 10;
-
         doc.setFontSize(14);
         doc.setFont('helvetica', 'normal');
         doc.setTextColor('#475569');
@@ -380,59 +585,83 @@ document.getElementById('downloadBtn').addEventListener('click', () => {
         yLeft += 20;
         yLeft = 60;
         yRight = 60;
-
         yLeft = addTitle('Contact', margin, yLeft);
         yLeft = addText([
-            'Phone: 0886753738',
-            'Email: yuliyangit@gmail.com',
-            'LinkedIn: linkedin.com/in/yuliyan-georgiev'
+          'Phone: 0886753738',
+          'Email: yuliyangit@gmail.com',
+          'LinkedIn: linkedin.com/in/yuliyan-georgiev'
         ], margin, yLeft, colWidth);
-
         yLeft = addTitle('Tech Skills', margin, yLeft);
         yLeft = addText([
-            'SQL / T-SQL, SSMS / SSRS, C#, ASP.NET Core, MVC, Unit Testing,',
-            'JavaScript, Node.js, HTML / CSS, Git'
+          'SQL / T-SQL, SSMS / SSRS, C#, ASP.NET Core, MVC, Unit Testing,',
+          'JavaScript, Node.js, HTML / CSS, Git'
         ], margin, yLeft, colWidth);
-
         yLeft = addTitle('Soft Skills', margin, yLeft);
         yLeft = addText([
-            'Self-Driven, Disciplined, Team-Oriented, Proactive,',
-            'Multitasking, Adaptability'
+          'Self-Driven, Disciplined, Team-Oriented, Proactive,',
+          'Multitasking, Adaptability'
         ], margin, yLeft, colWidth);
-
         yLeft = addTitle('Languages', margin, yLeft);
         yLeft = addText([
-            'Bulgarian – Native',
-            'English – Proficient'
+          'Bulgarian – Native',
+          'English – Proficient'
         ], margin, yLeft, colWidth);
-
         yRight = addTitle('Summary', margin + colWidth + colGap, yRight);
         yRight = addText([
-            'Disciplined and adaptable software developer with a strong ability',
-            'to multitask and maintain a positive outlook. Proactive, efficient,',
-            'and focused on achieving high-quality results. Enjoys collaboration,',
-            'thrives in dynamic environments, and is committed to continuous learning.'
+          'Disciplined and adaptable software developer with a strong ability',
+          'to multitask and maintain a positive outlook. Proactive, efficient,',
+          'and focused on achieving high-quality results. Enjoys collaboration,',
+          'thrives in dynamic environments, and is committed to continuous learning.'
         ], margin + colWidth + colGap, yRight, colWidth);
-
         yRight = addTitle('Experience', margin + colWidth + colGap, yRight);
         yRight = addText([
-            'Junior Database Developer – eDynamix (2024–Present), Stara Zagora',
-            '- Designed and maintained relational databases and schemas.',
-            '- Automated data workflows with T-SQL and SSIS.',
-            '- Created SSRS reports and dashboards.',
-            '- Performance tuning of stored procedures and queries.'
+          'Junior Database Developer – eDynamix (2024–Present), Stara Zagora',
+          '- Designed and maintained relational databases and schemas.',
+          '- Automated data workflows with T-SQL and SSIS.',
+          '- Created SSRS reports and dashboards.',
+          '- Performance tuning of stored procedures and queries.'
         ], margin + colWidth + colGap, yRight, colWidth);
-
         yRight = addTitle('Education', margin + colWidth + colGap, yRight);
         yRight = addText([
-            'Technical University of Sofia – Computer Systems (2023–Present)',
-            'SoftUni – Software Developer C# (2021–2022)',
-            'Vocational HS of Electrical Engineering – Plovdiv (2018–2023)'
+          'Technical University of Sofia – Computer Systems (2023–Present)',
+          'SoftUni – Software Developer C# (2021–2022)',
+          'Vocational HS of Electrical Engineering – Plovdiv (2018–2023)'
         ], margin + colWidth + colGap, yRight, colWidth);
-
         doc.save('Yuliyan-Georgiev-CV.pdf');
+      };
+    });
+    function toggleMenu() {
+      const menu = document.getElementById('sideMenu');
+      const menuToggle = document.getElementById('menuToggle');
+      const closeBtn = document.getElementById('closeMenuBtn');
+      menu.classList.toggle('closed');
+      if (menu.classList.contains('closed')) {
+        menuToggle.style.display = 'flex';
+        closeBtn.style.display = 'none';
+      } else {
+        menuToggle.style.display = 'none';
+        closeBtn.style.display = 'block';
+      }
+    }
+    document.querySelectorAll('#sideMenu a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 30,
+            behavior: 'smooth'
+          });
+        }
+        // Close menu on mobile after click
+        if (window.innerWidth < 900) {
+          toggleMenu();
+        }
+      });
+    });
+    document.getElementById('sideDownloadBtn').onclick = function() {
+      document.getElementById('downloadBtn').click();
     };
-});
-</script>
+  </script>
 </body>
 </html>
