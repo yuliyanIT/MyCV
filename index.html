@@ -4,35 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Yuliyan Georgiev - CV</title>
-
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
-
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    html, body {
-      scroll-behavior: smooth;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { scroll-behavior: smooth; }
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #dbeafe, #fef9c3);
-      color: #1e293b;
-      line-height: 1.7;
-      padding: 40px 20px;
-      overflow-x: hidden;
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
-    }
+  font-family: 'Segoe UI', sans-serif;
+  background: 
+    linear-gradient(135deg, #93be92, #fef9c3),
+    url('data:image/svg+xml;utf8,<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg"><text x="10" y="40" font-size="32" fill="%2363a5fa" opacity="0.13">&lt;/&gt;</text><text x="60" y="100" font-size="32" fill="%2363a5fa" opacity="0.13">{ }</text><text x="30" y="90" font-size="32" fill="%2363a5fa" opacity="0.13">;</text><text x="80" y="30" font-size="32" fill="%2363a5fa" opacity="0.13">()</text></svg>');
+  background-repeat: repeat;
+  background-size: 220px 220px;
+  color: #1e293b;
+  line-height: 1.7;
+  padding: 40px 20px;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
     #sideMenu {
       min-width: 270px;
       max-width: 290px;
@@ -51,9 +42,7 @@
       gap: 24px;
       transition: transform 0.4s cubic-bezier(.4,2.3,.3,1);
     }
-    #sideMenu.closed {
-      transform: translateX(-100%);
-    }
+    #sideMenu.closed { transform: translateX(-100%); }
     .side-menu-header {
       display: flex;
       justify-content: space-between;
@@ -76,23 +65,14 @@
       margin-left: 10px;
       display: none;
     }
-    #sideMenu:not(.closed) .close-btn {
-      display: block;
-    }
+    #sideMenu:not(.closed) .close-btn { display: block; }
     .side-menu-role {
       font-size: 1em;
       color: #a3a3a3;
       margin-bottom: 10px;
     }
-    #sideMenu ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      flex: 1;
-    }
-    #sideMenu li {
-      margin: 18px 0;
-    }
+    #sideMenu ul { list-style: none; padding: 0; margin: 0; flex: 1; }
+    #sideMenu li { margin: 18px 0; }
     #sideMenu a {
       color: #fff;
       text-decoration: none;
@@ -103,9 +83,7 @@
       gap: 12px;
       transition: color 0.2s;
     }
-    #sideMenu a:hover {
-      color: #0ea5e9;
-    }
+    #sideMenu a:hover { color: #0ea5e9; }
     .side-download-btn {
       width: 100%;
       background: transparent;
@@ -143,22 +121,14 @@
       gap: 10px;
       transition: background 0.2s;
     }
-    .menu-toggle:hover {
-      background: #0ea5e9;
-    }
-    #sideMenu:not(.closed) ~ .menu-toggle {
-      display: none;
-    }
+    .menu-toggle:hover { background: #0ea5e9; }
+    #sideMenu:not(.closed) ~ .menu-toggle { display: none; }
     .container {
-      /* margin-left: 300px; */ /* премахни или закоментирай този ред */
       width: 100%;
       max-width: 900px;
-      margin: 0 auto; /* добави този ред за центриране */
+      margin: 0 auto;
     }
-    .header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
+    .header { text-align: center; margin-bottom: 40px; }
     .header h1 {
       font-size: 3em;
       color: #0ea5e9;
@@ -166,12 +136,7 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    .header h2 {
-      font-size: 1.4em;
-      color: #475569;
-      margin-top: 10px;
-      font-weight: 400;
-    }
+    .header h2 { font-size: 1.4em; color: #475569; margin-top: 10px; font-weight: 400; }
     .download-fab {
       position: fixed;
       top: 32px;
@@ -189,9 +154,7 @@
       z-index: 200;
       transition: background 0.2s;
     }
-    .download-fab:hover {
-      background: #075ea7;
-    }
+    .download-fab:hover { background: #075ea7; }
     .fab-label {
       position: absolute;
       right: 60px;
@@ -209,39 +172,8 @@
       font-size: 1em;
       box-shadow: 0 2px 8px rgba(14,165,233,0.13);
     }
-    .download-fab:hover .fab-label {
-      opacity: 1;
-      right: 70px;
-    }
-    .contact {
-      text-align: center;
-      font-size: 0.95em;
-      color: #334155;
-      margin-bottom: 30px;
-    }
-    .contact a {
-      color: #2563eb;
-      text-decoration: none;
-      margin: 0 10px;
-      font-weight: 500;
-    }
-    .contact a:hover {
-      text-decoration: underline;
-    }
-    .contact .info-item {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background: #f0f4f8;
-      padding: 12px;
-      border-radius: 8px;
-      margin: 5px;
-      font-size: 1.1em;
-    }
-    .section {
-      margin-bottom: 50px;
-    }
+    .download-fab:hover .fab-label { opacity: 1; right: 70px; }
+    .section { margin-bottom: 50px; }
     .section h3,
     .section-title {
       font-size: 1.5em;
@@ -285,34 +217,26 @@
       cursor: default;
       user-select: none;
     }
-    .skill:hover {
-      transform: translateY(-5px);
-      background: #dbeafe;
-    }
-    ul {
-      margin-left: 20px;
-      margin-top: 10px;
-      color: #334155;
-      font-weight: 500;
-    }
-    ul li {
-      margin-bottom: 8px;
-    }
+    .skill:hover { transform: translateY(-5px); background: #dbeafe; }
+    ul { margin-left: 20px; margin-top: 10px; color: #334155; font-weight: 500; }
+    ul li { margin-bottom: 8px; }
     .flip-card {
       background: transparent;
       width: 100%;
       perspective: 1000px;
       margin-bottom: 40px;
       position: relative;
-      min-height: unset;
-      height: auto;
+      min-height: 340px;
+      height: 340px;
+      max-height: 340px;
       transition: z-index 0.2s;
     }
     .flip-card-inner {
       position: relative;
       width: 100%;
-      min-height: 220px;
-      height: auto;
+      min-height: 340px;
+      height: 340;
+      max-height: 340px;
       transition: transform 0.7s cubic-bezier(.4,2.3,.3,1);
       transform-style: preserve-3d;
       display: flex;
@@ -327,7 +251,6 @@
       box-sizing: border-box;
       padding: 24px;
       display: block;
-      /* Remove absolute positioning and height */
       min-height: 220px;
     }
     .flip-card-front {
@@ -344,7 +267,7 @@
       top: 0;
       left: 0;
       width: 100%;
-      padding-top: 40px; /* или колкото е нужно */
+      padding-top: 40px;
     }
     .flip-card:hover .flip-card-inner,
     .flip-card:focus-within .flip-card-inner {
@@ -353,12 +276,9 @@
     .flip-card:hover,
     .flip-card:focus-within {
       z-index: 10;
-      margin-top: -60px; /* или колкото е нужно, за да се "приплъзне" нагоре */
+      margin-top: 0px;
     }
-    .flip-card-inner {
-      /* Let the height grow with content */
-      height: auto;
-    }
+    .flip-card-inner { height: auto; }
     .contact-btn {
       display: flex;
       align-items: center;
@@ -387,13 +307,11 @@
       font-weight: 600;
       white-space: nowrap;
     }
-
     .contact-btn .btn-icon {
       display: inline-block;
       font-size: 1.3em;
       transition: opacity 0.2s;
     }
-
     #contacts .contact-btn {
       justify-content: center;
       width: 100%;
@@ -402,24 +320,12 @@
       text-align: center;
       position: relative;
     }
-
-    /* Показвай само иконата по подразбиране */
-    #contacts .contact-btn .btn-icon {
-      display: inline-block;
-    }
-    #contacts .contact-btn .btn-label {
-      display: none;
-    }
-
-    /* При hover на бутона - скрий иконата, покажи текста */
+    #contacts .contact-btn .btn-icon { display: inline-block; }
+    #contacts .contact-btn .btn-label { display: none; }
     #contacts .contact-btn:hover .btn-icon,
-    #contacts .contact-btn:focus .btn-icon {
-      display: none;
-    }
+    #contacts .contact-btn:focus .btn-icon { display: none; }
     #contacts .contact-btn:hover .btn-label,
-    #contacts .contact-btn:focus .btn-label {
-      display: inline-block;
-    }
+    #contacts .contact-btn:focus .btn-label { display: inline-block; }
     .flip-card-back ul ul {
       background: none;
       padding: 0 0 0 18px;
@@ -438,21 +344,96 @@
     @media (max-width: 900px) {
       #sideMenu { display: none; }
       .container { margin-left: 0; }
+      .progress-vertical { display: none; }
+      .vertical-stars { display: none; }
     }
     @media (max-width: 640px) {
-      .container {
-        padding: 25px;
-      }
-      .header h1 {
-        font-size: 2em;
-      }
-      .header h2 {
-        font-size: 1.1em;
-      }
+      .container { padding: 25px; }
+      .header h1 { font-size: 2em; }
+      .header h2 { font-size: 1.1em; }
+    }
+    .fun-fact {
+      background: #fef9c3;
+      color: #b45309;
+      border-radius: 10px;
+      padding: 14px 24px;
+      margin: 30px auto;
+      text-align: center;
+      font-size: 1.1em;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #fde68a55;
+      transition: background 0.2s;
+      max-width: 400px;
+      user-select: none;
+    }
+    .fun-fact:hover { background: #fde68a; }
+    .fun-fact i { margin-right: 10px; color: #f59e42; }
+    .progress-vertical {
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 12px;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+    .progress-bar-bg {
+      width: 6px;
+      height: 90vh;
+      background: #e0e7ef;
+      border-radius: 4px;
+      margin: auto;
+      position: relative;
+      overflow: hidden;
+      margin-left: 3px;
+    }
+    .progress-bar-fill {
+      width: 100%;
+      background: linear-gradient(180deg, #38bdf8, #6366f1);
+      border-radius: 4px;
+      position: absolute;
+      
+      left: 0;
+      height: 0;
+      transition: height 0.3s cubic-bezier(.4,2.3,.3,1);
+    }
+    .vertical-stars {
+      position: fixed;
+      left: 18px;
+      top: 80px;
+      bottom: 80px;
+      width: 32px;
+      z-index: 120;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      pointer-events: none;
+    }
+    .vertical-stars .star {
+      pointer-events: auto;
+      cursor: pointer;
+      margin: 8px 0;
+      transition: transform 0.2s;
+    }
+    .vertical-stars .star i {
+      color: #facc15;
+      font-size: 1.5em;
+      transition: color 0.2s, transform 0.2s;
+      filter: drop-shadow(0 2px 4px #fde68a88);
+    }
+    .vertical-stars .star.active i,
+    .vertical-stars .star:hover i {
+      color: #f59e42;
+      transform: scale(1.25);
     }
   </style>
 </head>
 <body>
+  
   <button id="menuToggle" class="menu-toggle" onclick="toggleMenu()">
     <i class="fa-solid fa-bars"></i> MENU
   </button>
@@ -470,19 +451,20 @@
       <li><a href="#soft-skills"><i class="fa-solid fa-heart"></i> Soft Skills</a></li>
       <li><a href="#languages"><i class="fa-solid fa-language"></i> Languages</a></li>
       <li><a href="#contacts"><i class="fa-solid fa-address-card"></i> Find Me On</a></li>
+      <li><a href="#certificates"><i class="fa-solid fa-certificate"></i> Certificates</a></li>
     </ul>
     <button class="side-download-btn" id="sideDownloadBtn">
-      <i class="fa-solid fa-download"></i> Download CV
+      <i class="fa-solid fa-download"></i> Download my resume
     </button>
   </div>
   <div class="container" id="cv">
     <header class="header" data-aos="fade-down" style="display: flex; align-items: center; justify-content: center; gap: 48px; margin-bottom: 40px; flex-wrap: wrap;">
-      <div style="flex-shrink:0; display:flex; align-items:center;">
+      <div style="flex-shrink:0; display:flex; align-self:flex-start;">
         <img src="cv_photo.png" alt="Yuliyan Georgiev" style="width:130px;height:130px;object-fit:cover;border-radius:50%;box-shadow:0 2px 25px #60a5fa55;">
       </div>
-      <div style="flex:1; min-width:280px; display:flex; flex-direction:column; justify-content:center;">
-        <h1 style="font-size:3em; font-weight:300; color:#3b82f6; margin-bottom:10px; line-height:1.1; text-align:left;">
-          Hi, I'm <span style="color:#2563eb; font-weight:700;">Yuliyan Georgiev!</span>
+      <div style="flex:1; min-width:300px; display:flex; flex-direction:column; justify-content:center;">
+        <h1 style="font-size:3em; font-weight:300; color:#3b82f6; margin-bottom:15px; line-height:1.5; text-align:left;">
+          Hi, I'm <span style="color:#2563eb; font-weight:800;">Yuliyan Georgiev!</span>
         </h1>
         <div style="height:3px; width:100%; max-width:600px; background:#38bdf8; margin:12px 0 18px 0; border-radius:2px;"></div>
         <h2 style="font-size:1.7em; color:#64748b; font-weight:400; margin-bottom:10px; text-align:left;">
@@ -491,17 +473,12 @@
         <p style="color:#475569; font-size:1.18em; text-align:left; max-width:600px;">
           I'm a passionate junior developer based in Plovdiv, Bulgaria. Love playing video games, listening to music and spending time with friends and family.
         </p>
-        <div class="welcome-msg" style="margin-top:18px;font-size:1.25em;color:#2563eb;font-weight:700; text-align:left;">
-          Welcome to Yuliyan's CV
-        </div>
       </div>
     </header>
     <div class="download-fab" id="downloadBtn">
       <i class="fa-solid fa-download"></i>
       <span class="fab-label">Download CV as PDF</span>
     </div>
-  
-    </section>
     <!-- Summary -->
     <section id="summary" class="section">
       <div class="flip-card" data-aos="fade-up">
@@ -667,7 +644,104 @@
         </div>
       </div>
     </section>
+    <!-- Certificates -->
+    <section id="certificates" class="section">
+      <div class="flip-card" data-aos="fade-up" data-aos-delay="350">
+        <div class="flip-card-inner">
+          <div class="flip-card-front card">
+            <h3>Certificates</h3>
+            <p>Proof of my dedication!</p>
+          </div>
+          <div class="flip-card-back card">
+            <h3 class="section-title">Certificates</h3>
+            <ul>
+              <li>
+                <a href="Programming Basics - March 2021 - Certificate.pdf" target="_blank" download>
+                  Programming Basics with C# - Certificate (PDF)
+                </a>
+              </li>
+              <li>
+                <a href="Programming Fundamentals with C# - May 2021 - Certificate.pdf" target="_blank" download>
+                  Programming Fundamentals with C# - Certificate (PDF)
+                </a>
+              </li>
+              <li>
+                <a href="C# OOP - October 2021 - Certificate.pdf" target="_blank" download>
+                  C# OOP - Certificate (PDF)
+                </a>
+              </li>
+              <li>
+                <a href="MS SQL - May 2022 - Certificate.pdf" target="_blank" download>
+                  MS SQL - Certificate (PDF)
+                </a>
+              </li>
+              <li>
+                <a href="ASP.NET Fundamentals - September 2022   - Certificate.pdf" target="_blank" download>
+                  ASP.NET Fundamentals - Certificate (PDF)
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="fun-fact" onclick="nextFact()">
+      <i class="fa-solid fa-lightbulb"></i>
+      <span id="factText">Did you know? I love learning new tech!</span>
+    </div>
+    <div class="progress-vertical">
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progressBarFill"></div>
+      </div>
+    </div>
   </div>
+  <div class="vertical-stars">
+    <span class="star" data-target="#summary"><i class="fa-solid fa-star"></i></span>
+    <span class="star" data-target="#experience"><i class="fa-solid fa-star"></i></span>
+    <span class="star" data-target="#skills"><i class="fa-solid fa-star"></i></span>
+    <span class="star" data-target="#education"><i class="fa-solid fa-star"></i></span>
+    <span class="star" data-target="#soft-skills"><i class="fa-solid fa-star"></i></span>
+    <span class="star" data-target="#languages"><i class="fa-solid fa-star"></i></span>
+    <span class="star" data-target="#contacts"><i class="fa-solid fa-star"></i></span>
+  </div>
+ 
+<script>
+  // filepath: c:\Users\ulkom\Desktop\My_CV\index.html
+  const canvas = document.getElementById('codeRain');
+  const ctx = canvas.getContext('2d');
+  let w = window.innerWidth;
+  let h = window.innerHeight;
+  canvas.width = w;
+  canvas.height = h;
+
+  const symbols = ['{', '}', ';', '<', '>', '/', '\\', '|', '=', '+', '-', '*', '(', ')', '[', ']', '&lt;/&gt;', 'if', 'else', 'var', 'let', 'const'];
+  const fontSize = 1;
+  const columns = Math.floor(w / fontSize);
+  const drops = Array(columns).fill(1);
+
+  function draw() {
+    ctx.fillStyle = 'rgba(255,255,255,0.07)';
+    ctx.fillRect(0, 0, w, h);
+    ctx.font = fontSize + "px 'Fira Mono', 'Consolas', monospace";
+    ctx.fillStyle = "#38bdf8";
+    for (let i = 0; i < drops.length; i++) {
+      const text = symbols[Math.floor(Math.random() * symbols.length)];
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+      if (Math.random() > 0.975) drops[i] = 0;
+      drops[i]++;
+      if (drops[i] * fontSize > h) drops[i] = 0;
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+
+  window.addEventListener('resize', () => {
+    w = window.innerWidth;
+    h = window.innerHeight;
+    canvas.width = w;
+    canvas.height = h;
+  });
+</script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
     AOS.init({
@@ -800,7 +874,6 @@
             behavior: 'smooth'
           });
         }
-        // Close menu on mobile after click
         if (window.innerWidth < 900) {
           toggleMenu();
         }
@@ -809,6 +882,53 @@
     document.getElementById('sideDownloadBtn').onclick = function() {
       document.getElementById('downloadBtn').click();
     };
+    const facts = [
+      "Did you know? I love learning new tech!",
+      "Fun fact: I built my first game at 15.",
+      "Music helps me focus while coding.",
+      "I’m always up for a new challenge!"
+    ];
+    let factIdx = 0;
+    window.nextFact = function() {
+      factIdx = (factIdx + 1) % facts.length;
+      document.getElementById('factText').textContent = facts[factIdx];
+    };
+    window.addEventListener('scroll', function() {
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const scrollTop = window.scrollY || window.pageYOffset;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) : 0;
+      document.getElementById('progressBarFill').style.height = (progress * 100) + '%';
+    });
+    document.querySelectorAll('.vertical-stars .star').forEach(star => {
+      star.addEventListener('click', function() {
+        const target = document.querySelector(this.getAttribute('data-target'));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 10,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    window.addEventListener('scroll', function() {
+      const stars = document.querySelectorAll('.vertical-stars .star');
+      const sections = [
+        '#summary', '#experience', '#skills', '#education', '#soft-skills', '#languages', '#contacts'
+      ].map(id => document.querySelector(id));
+      let activeIdx = 0;
+      for (let i = 0; i < sections.length ; i++) {
+        if (sections[i] && window.scrollY + 500 > sections[i].offsetTop) {
+          activeIdx = i;
+        }
+      }
+      stars.forEach((star, idx) => {
+        if (idx === activeIdx) {
+          star.classList.add('active');
+        } else {
+          star.classList.remove('active');
+        }
+      });
+    });
   </script>
 </body>
 </html>
