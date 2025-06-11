@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit CV Content</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #e0e7ef 0%, #f1f5f9 100%);
+      font-family: 'Segoe UI', sans-serif;
+      min-height: 100vh;
+    }
+    .admin-panel {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 32px #0001;
+      padding: 36px 32px 32px 32px;
+    }
+    .admin-panel h2 {
+      text-align: center;
+      color: #2563eb;
+      margin-bottom: 32px;
+      font-size: 2em;
+      letter-spacing: 1px;
+    }
+    .edit-section {
+      margin-bottom: 32px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #e0e7ef;
+    }
+    .edit-section:last-child { border-bottom: none; }
+    label {
+      font-weight: 600;
+      color: #1e293b;
+      display: block;
+      margin-bottom: 6px;
+      margin-top: 18px;
+      letter-spacing: 0.5px;
+    }
+    textarea, input[type="text"] {
+      width: 100%;
+      min-height: 48px;
+      margin-top: 6px;
+      border-radius: 8px;
+      border: 1.5px solid #cbd5e1;
+      padding: 10px;
+      font-size: 1.08em;
+      background: #f8fafc;
+      transition: border 0.2s;
+      resize: vertical;
+    }
+    textarea:focus, input[type="text"]:focus {
+      border: 1.5px solid #2563eb;
+      outline: none;
+      background: #fff;
+    }
+    button {
+      margin-top: 32px;
+      padding: 14px 36px;
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.15em;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #2563eb22;
+      transition: background 0.2s;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    button:hover { background: #1d4ed8; }
+    button[type="submit"] {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  margin-bottom: 0;
+}
+    .section-title {
+      font-size: 1.2em;
+      color: #2563eb;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-title i {
+      color: #facc15;
+      font-size: 1.1em;
+    }
+    @media (max-width: 700px) {
+      .admin-panel { padding: 18px 4vw; }
+    }
+    .save-success {
+  background: #d1fae5;
+  color: #047857;
+  border: 1.5px solid #10b981;
+  border-radius: 8px;
+  padding: 12px 18px;
+  margin-bottom: 24px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+    }
+    .save-success i { color: #10b981; }
+  </style>
+</head>
+<body>
+  <form method="post" class="admin-panel">
+    <h2><i class="fa-solid fa-pen-to-square"></i> Edit CV Content</h2>
+
+    <% if (typeof saved !== 'undefined' && saved) { %>
+      <div class="save-success">
+        <i class="fa-solid fa-circle-check"></i> Changes saved!
+        <a href="/admin" class="back-dashboard-btn">
+          <i class="fa-solid fa-arrow-left"></i> Back to Admin Dashboard
+        </a>
+      </div>
+    <% } %>
+
+    <div class="edit-section">
+      <div class="section-title"><i class="fa-solid fa-user"></i> Summary</div>
+      <label>Summary (Front)</label>
+      <textarea name="summary"><%= content.summary %></textarea>
+      <label>Summary (Back of Card)</label>
+      <textarea name="summary_back"><%= content.summary_back %></textarea>
+    </div>
+
+    <div class="edit-section">
+      <div class="section-title"><i class="fa-solid fa-briefcase"></i> Experience</div>
+      <label>Experience (Front)</label>
+      <textarea name="experience"><%= content.experience %></textarea>
+      <label>Experience (Back of Card)</label>
+      <textarea name="experience_back"><%= content.experience_back %></textarea>
+    </div>
+
+    <div class="edit-section">
+      <div class="section-title"><i class="fa-solid fa-laptop-code"></i> Tech Skills</div>
+      <label>Tech Skills (Front)</label>
+      <textarea name="skills"><%= content.skills %></textarea>
+      <label>Tech Skills (Back of Card)</label>
+      <textarea name="skills_back"><%= content.skills_back %></textarea>
+    </div>
+
+    <div class="edit-section">
+      <div class="section-title"><i class="fa-solid fa-graduation-cap"></i> Education</div>
+      <label>Education (Front)</label>
+      <textarea name="education"><%= content.education %></textarea>
+      <label>Education (Back of Card)</label>
+      <textarea name="education_back"><%= content.education_back %></textarea>
+    </div>
+
+    <div class="edit-section">
+      <div class="section-title"><i class="fa-solid fa-heart"></i> Soft Skills</div>
+      <label>Soft Skills (Front)</label>
+      <textarea name="softskills"><%= content.softskills %></textarea>
+      <label>Soft Skills (Back of Card)</label>
+      <textarea name="softskills_back"><%= content.softskills_back %></textarea>
+    </div>
+
+    <div class="edit-section">
+      <div class="section-title"><i class="fa-solid fa-language"></i> Languages</div>
+      <label>Languages (Front)</label>
+      <textarea name="languages"><%= content.languages %></textarea>
+      <label>Languages (Back of Card)</label>
+      <textarea name="languages_back"><%= content.languages_back %></textarea>
+    </div>
+
+    <div class="edit-section">
+      <div class="section-title"><i class="fa-solid fa-address-card"></i> Contacts</div>
+      <label>Contacts (Front)</label>
+      <textarea name="contacts"><%= content.contacts %></textarea>
+      <label>Contacts (Back of Card)</label>
+      <textarea name="contacts_back"><%= content.contacts_back %></textarea>
+    </div>
+
+    <div class="edit-section">
+      <div class="section-title"><i class="fa-solid fa-certificate"></i> Certificates</div>
+      <label>Certificates (Front)</label>
+      <textarea name="certificates"><%= content.certificates %></textarea>
+      <label>Certificates (Back of Card)</label>
+      <textarea name="certificates_back"><%= content.certificates_back %></textarea>
+    </div>
+
+    <button type="submit"><i class="fa-solid fa-floppy-disk"></i> Save Changes</button>
+  </form>
+
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('textarea').forEach(function(t) {
+    t.style.height = t.scrollHeight + "px";
+    t.addEventListener('input', function() {
+      this.style.height = "auto";
+      this.style.height = this.scrollHeight + "px";
+    });
+  });
+});
+</script>
+</body>
+</html>

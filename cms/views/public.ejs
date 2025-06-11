@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yuliyan Georgiev - CV</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+</head>
+<body>
+  <button id="menuToggle" class="menu-toggle" onclick="toggleMenu()">
+    <i class="fa-solid fa-bars"></i> MENU
+  </button>
+  <div id="sideMenu" class="side-menu-vertical closed">
+    <div class="side-menu-header">
+      <span class="side-menu-title">Yuliyan Georgiev</span>
+      <button class="close-btn" onclick="toggleMenu()" id="closeMenuBtn">&times;</button>
+    </div>
+    <div class="side-menu-role">Junior Database Developer</div>
+    <ul>
+      <li><a href="#summary"><i class="fa-solid fa-user"></i> Summary</a></li>
+      <li><a href="#experience"><i class="fa-solid fa-briefcase"></i> Experience</a></li>
+      <li><a href="#skills"><i class="fa-solid fa-laptop-code"></i> Tech Skills</a></li>
+      <li><a href="#education"><i class="fa-solid fa-graduation-cap"></i> Education</a></li>
+      <li><a href="#soft-skills"><i class="fa-solid fa-heart"></i> Soft Skills</a></li>
+      <li><a href="#languages"><i class="fa-solid fa-language"></i> Languages</a></li>
+      <li><a href="#contacts"><i class="fa-solid fa-address-card"></i> Find Me On</a></li>
+      <li><a href="#certificates"><i class="fa-solid fa-certificate"></i> Certificates</a></li>
+    </ul>
+    <button class="side-download-btn" id="sideDownloadBtn">
+      <i class="fa-solid fa-download"></i> Download my resume
+    </button>
+  </div>
+  <div class="container" id="cv">
+    <header class="header" data-aos="fade-down" style="display: flex; align-items: center; justify-content: center; gap: 48px; margin-bottom: 40px; flex-wrap: wrap;">
+      <div style="flex-shrink:0; display:flex; align-self:flex-start;">
+        <img src="/cv_photo.png" alt="Yuliyan Georgiev" style="width:130px;height:130px;object-fit:cover;border-radius:50%;box-shadow:0 2px 25px #60a5fa55;">
+      </div>
+      <div style="flex:1; min-width:300px; display:flex; flex-direction:column; justify-content:center;">
+        <h1 style="font-size:3em; font-weight:300; color:#3b82f6; margin-bottom:15px; line-height:1.5; text-align:left;">
+          Hi, I'm <span style="color:#2563eb; font-weight:800;">Yuliyan Georgiev!</span>
+        </h1>
+        <div style="height:3px; width:100%; max-width:600px; background:#38bdf8; margin:12px 0 18px 0; border-radius:2px;"></div>
+        <h2 style="font-size:1.7em; color:#64748b; font-weight:400; margin-bottom:10px; text-align:left;">
+          Junior Database Developer
+        </h2>
+        <p style="color:#475569; font-size:1.18em; text-align:left; max-width:600px;">
+          I'm a passionate junior developer based in Plovdiv, Bulgaria. Love playing video games, listening to music and spending time with friends and family.
+        </p>
+      </div>
+    </header>
+    <div class="download-fab" id="downloadBtn">
+      <i class="fa-solid fa-download"></i>
+      <span class="fab-label">Download CV as PDF</span>
+    </div>
+    <!-- Summary -->
+    <section id="summary" class="section">
+      <div class="flip-card" data-aos="fade-up">
+        <div class="flip-card-inner">
+          <div class="flip-card-front card">
+            <h3>Summary</h3>
+            <p><%= content.summary %></p>
+          </div>
+          <div class="flip-card-back card">
+            <%- content.summary_back %>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Experience -->
+    <section id="experience" class="section">
+      <div class="flip-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="flip-card-inner">
+          <div class="flip-card-front card">
+            <h3>Experience</h3>
+            <p><%= content.experience %></p>
+          </div>
+          <div class="flip-card-back card">
+            <%- content.experience_back %>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Tech Skills -->
+    <section id="skills" class="section">
+      <div class="flip-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="flip-card-inner">
+          <div class="flip-card-front card">
+            <h3>Tech Skills</h3>
+            <p><%= content.skills %></p>
+          </div>
+          <div class="flip-card-back card">
+            <%- content.skills_back %>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Education -->
+    <section id="education" class="section">
+      <div class="flip-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="flip-card-inner">
+          <div class="flip-card-front card">
+            <h3>Education</h3>
+            <p><%= content.education %></p>
+          </div>
+          <div class="flip-card-back card">
+            <%- content.education_back %>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Soft Skills -->
+    <section id="soft-skills" class="section">
+      <div class="flip-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="flip-card-inner">
+          <div class="flip-card-front card">
+            <h3>Soft Skills</h3>
+            <p><%= content.softskills %></p>
+          </div>
+          <div class="flip-card-back card">
+            <%- content.softskills_back %>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Languages -->
+    <section id="languages" class="section">
+      <div class="flip-card" data-aos="fade-up" data-aos-delay="500">
+        <div class="flip-card-inner">
+          <div class="flip-card-front card">
+            <h3>Languages</h3>
+            <p><%= content.languages %></p>
+          </div>
+          <div class="flip-card-back card">
+            <%- content.languages_back %>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contacts -->
+    <section id="contacts" class="section">
+      <div class="flip-card" data-aos="fade-up" data-aos-delay="600">
+        <div class="flip-card-inner">
+          <div class="flip-card-front card">
+            <h3>Find Me On</h3>
+            <p><%= content.contacts %></p>
+          </div>
+          <div class="flip-card-back card">
+            <%- content.contacts_back %>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Certificates -->
+    <section id="certificates" class="section">
+      <div class="flip-card" data-aos="fade-up" data-aos-delay="700">
+        <div class="flip-card-inner">
+          <div class="flip-card-front card">
+            <h3>Certificates</h3>
+            <p><%= content.certificates %></p>
+          </div>
+          <div class="flip-card-back card">
+            <%- content.certificates_back %>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="fun-fact" onclick="nextFact()">
+      <i class="fa-solid fa-lightbulb"></i>
+      <span id="factText">Did you know? I love learning new tech!</span>
+    </div>
+    <div class="progress-vertical">
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progressBarFill"></div>
+      </div>
+    </div>
+  </div>
+  <div class="vertical-stars">
+    <span class="star" data-target="#summary"><i class="fa-solid fa-star"></i></span>
+    <span class="star" data-target="#experience"><i class="fa-solid fa-star"></i></span>
+    <span class="star" data-target="#skills"><i class="fa-solid fa-star"></i></span>
+    <span class="star" data-target="#education"><i class="fa-solid fa-star"></i></span>
+    <span class="star" data-target="#soft-skills"><i class="fa-solid fa-star"></i></span>
+    <span class="star" data-target="#languages"><i class="fa-solid fa-star"></i></span>
+    <span class="star" data-target="#contacts"><i class="fa-solid fa-star"></i></span>
+    <span class="star" data-target="#certificates"><i class="fa-solid fa-star"></i></span>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 700,
+      once: true,
+    });
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="/main.js"></script>
+</body>
+</html>

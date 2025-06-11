@@ -11,11 +11,8 @@
     html, body { scroll-behavior: smooth; }
     body {
   font-family: 'Segoe UI', sans-serif;
-  background: 
-    linear-gradient(135deg, #93be92, #fef9c3),
-    url('data:image/svg+xml;utf8,<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg"><text x="10" y="40" font-size="32" fill="%2363a5fa" opacity="0.13">&lt;/&gt;</text><text x="60" y="100" font-size="32" fill="%2363a5fa" opacity="0.13">{ }</text><text x="30" y="90" font-size="32" fill="%2363a5fa" opacity="0.13">;</text><text x="80" y="30" font-size="32" fill="%2363a5fa" opacity="0.13">()</text></svg>');
-  background-repeat: repeat;
-  background-size: 220px 220px;
+  background:
+    linear-gradient(135deg, #e0e7ef 0%, #f1f5f9 100%);
   color: #1e293b;
   line-height: 1.7;
   padding: 40px 20px;
@@ -173,7 +170,7 @@
       box-shadow: 0 2px 8px rgba(14,165,233,0.13);
     }
     .download-fab:hover .fab-label { opacity: 1; right: 70px; }
-    .section { margin-bottom: 50px; }
+    .section { margin-bottom: 24px; }
     .section h3,
     .section-title {
       font-size: 1.5em;
@@ -224,61 +221,68 @@
       background: transparent;
       width: 100%;
       perspective: 1000px;
-      margin-bottom: 40px;
-      position: relative;
-      min-height: 340px;
-      height: 340px;
-      max-height: 340px;
-      transition: z-index 0.2s;
+      margin-bottom: 18px;
+      position: static;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.6s cubic-bezier(.4,2.3,.3,1), transform 0.6s cubic-bezier(.4,2.3,.3,1);
+    }
+    .flip-card.card-animated {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.6s cubic-bezier(.4,2.3,.3,1), transform 0.6s cubic-bezier(.4,2.3,.3,1);
+    }
+    .flip-card.card-fadeout {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.6s cubic-bezier(.4,2.3,.3,1), transform 0.6s cubic-bezier(.4,2.3,.3,1);
     }
     .flip-card-inner {
       position: relative;
       width: 100%;
-      min-height: 340px;
-      height: 340;
-      max-height: 340px;
       transition: transform 0.7s cubic-bezier(.4,2.3,.3,1);
       transform-style: preserve-3d;
-      display: flex;
-      flex-direction: column;
+  
     }
     .flip-card-front,
     .flip-card-back {
-      position: relative;
       width: 100%;
       backface-visibility: hidden;
       border-radius: 14px;
       box-sizing: border-box;
       padding: 24px;
+      min-height: 150px;
+      position: relative; /* НЕ absolute! */
       display: block;
-      min-height: 220px;
     }
     .flip-card-front {
       background: #f8fafc;
       color: #1e293b;
-      z-index: 2;
     }
     .flip-card-back {
-      transform: rotateX(180deg);
       background: #dbeafe;
       color: #1d4ed8;
-      z-index: 1;
+      transform: rotateY(180deg);
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
-      padding-top: 40px;
+    }
+    .flip-card-inner {
+      height: auto;
     }
     .flip-card:hover .flip-card-inner,
     .flip-card:focus-within .flip-card-inner {
-      transform: rotateX(180deg);
+      transform: rotateY(180deg);
     }
-    .flip-card:hover,
-    .flip-card:focus-within {
-      z-index: 10;
-      margin-top: 0px;
+    .flip-card:hover .flip-card-front,
+    .flip-card:focus-within .flip-card-front {
+      /* скрий front при flip */
+      display: none;
     }
-    .flip-card-inner { height: auto; }
+    .flip-card:hover .flip-card-back,
+    .flip-card:focus-within .flip-card-back {
+      display: block;
+    }
     .contact-btn {
       display: flex;
       align-items: center;
@@ -346,6 +350,12 @@
       .container { margin-left: 0; }
       .progress-vertical { display: none; }
       .vertical-stars { display: none; }
+      .section {
+    margin-bottom: 16px;
+  }
+  .flip-card {
+    margin-bottom: 12px;
+  }
     }
     @media (max-width: 640px) {
       .container { padding: 25px; }
@@ -415,7 +425,6 @@
     }
     .vertical-stars .star {
       pointer-events: auto;
-      cursor: pointer;
       margin: 8px 0;
       transition: transform 0.2s;
     }
@@ -425,8 +434,7 @@
       transition: color 0.2s, transform 0.2s;
       filter: drop-shadow(0 2px 4px #fde68a88);
     }
-    .vertical-stars .star.active i,
-    .vertical-stars .star:hover i {
+    .vertical-stars .star.active i{
       color: #f59e42;
       transform: scale(1.25);
     }
@@ -656,27 +664,27 @@
             <h3 class="section-title">Certificates</h3>
             <ul>
               <li>
-                <a href="Programming Basics - March 2021 - Certificate.pdf" target="_blank" download>
+                <a href="Programming_Basics_CSharp_March2021_Certificate.pdf" target="_blank" download>
                   Programming Basics with C# - Certificate (PDF)
                 </a>
               </li>
               <li>
-                <a href="Programming Fundamentals with C# - May 2021 - Certificate.pdf" target="_blank" download>
+                <a href="Programming_Fundamentals_CSharp_May2021_Certificate.pdf" target="_blank" download>
                   Programming Fundamentals with C# - Certificate (PDF)
                 </a>
               </li>
               <li>
-                <a href="C# OOP - October 2021 - Certificate.pdf" target="_blank" download>
+                <a href="CSharp_OOP_October2021_Certificate.pdf" target="_blank" download>
                   C# OOP - Certificate (PDF)
                 </a>
               </li>
               <li>
-                <a href="MS SQL - May 2022 - Certificate.pdf" target="_blank" download>
+                <a href="MS_SQL_May2022_Certificate.pdf" target="_blank" download>
                   MS SQL - Certificate (PDF)
                 </a>
               </li>
               <li>
-                <a href="ASP.NET Fundamentals - September 2022   - Certificate.pdf" target="_blank" download>
+                <a href="ASP_NET_Fundamentals_September2022_Certificate.pdf" target="_blank" download>
                   ASP.NET Fundamentals - Certificate (PDF)
                 </a>
               </li>
@@ -704,44 +712,6 @@
     <span class="star" data-target="#languages"><i class="fa-solid fa-star"></i></span>
     <span class="star" data-target="#contacts"><i class="fa-solid fa-star"></i></span>
   </div>
- 
-<script>
-  // filepath: c:\Users\ulkom\Desktop\My_CV\index.html
-  const canvas = document.getElementById('codeRain');
-  const ctx = canvas.getContext('2d');
-  let w = window.innerWidth;
-  let h = window.innerHeight;
-  canvas.width = w;
-  canvas.height = h;
-
-  const symbols = ['{', '}', ';', '<', '>', '/', '\\', '|', '=', '+', '-', '*', '(', ')', '[', ']', '&lt;/&gt;', 'if', 'else', 'var', 'let', 'const'];
-  const fontSize = 1;
-  const columns = Math.floor(w / fontSize);
-  const drops = Array(columns).fill(1);
-
-  function draw() {
-    ctx.fillStyle = 'rgba(255,255,255,0.07)';
-    ctx.fillRect(0, 0, w, h);
-    ctx.font = fontSize + "px 'Fira Mono', 'Consolas', monospace";
-    ctx.fillStyle = "#38bdf8";
-    for (let i = 0; i < drops.length; i++) {
-      const text = symbols[Math.floor(Math.random() * symbols.length)];
-      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-      if (Math.random() > 0.975) drops[i] = 0;
-      drops[i]++;
-      if (drops[i] * fontSize > h) drops[i] = 0;
-    }
-    requestAnimationFrame(draw);
-  }
-  draw();
-
-  window.addEventListener('resize', () => {
-    w = window.innerWidth;
-    h = window.innerHeight;
-    canvas.width = w;
-    canvas.height = h;
-  });
-</script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
     AOS.init({
@@ -899,17 +869,7 @@
       const progress = docHeight > 0 ? (scrollTop / docHeight) : 0;
       document.getElementById('progressBarFill').style.height = (progress * 100) + '%';
     });
-    document.querySelectorAll('.vertical-stars .star').forEach(star => {
-      star.addEventListener('click', function() {
-        const target = document.querySelector(this.getAttribute('data-target'));
-        if (target) {
-          window.scrollTo({
-            top: target.offsetTop - 10,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
+    
     window.addEventListener('scroll', function() {
       const stars = document.querySelectorAll('.vertical-stars .star');
       const sections = [
@@ -930,5 +890,27 @@
       });
     });
   </script>
+  <script>
+document.querySelectorAll('.flip-card').forEach(card => {
+  const inner = card.querySelector('.flip-card-inner');
+  const front = card.querySelector('.flip-card-front');
+  const back = card.querySelector('.flip-card-back');
+  card.addEventListener('mouseenter', () => {
+    front.style.display = 'block';
+    back.style.display = 'block';
+    const frontHeight = front.offsetHeight;
+    const backHeight = back.offsetHeight;
+    const maxHeight = Math.max(frontHeight, backHeight);
+    card.style.height = maxHeight + 'px';
+    if(inner) inner.style.height = maxHeight + 'px';
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.height = '';
+    if(inner) inner.style.height = '';
+    front.style.display = '';
+    back.style.display = '';
+  });
+});
+</script>
 </body>
 </html>

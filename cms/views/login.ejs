@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | Admin Panel</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #e0e7ef 0%, #f1f5f9 100%);
+      font-family: 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .login-panel {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 32px #0001;
+      padding: 36px 32px 32px 32px;
+      max-width: 400px;
+      width: 100%;
+      margin: 40px auto;
+      text-align: center;
+    }
+    .login-panel h2 {
+      color: #2563eb;
+      margin-bottom: 24px;
+      font-size: 2em;
+      letter-spacing: 1px;
+    }
+    .login-panel label {
+      font-weight: 600;
+      color: #1e293b;
+      display: block;
+      margin-bottom: 6px;
+      margin-top: 18px;
+      letter-spacing: 0.5px;
+      text-align: left;
+    }
+    .login-panel input[type="text"],
+    .login-panel input[type="password"] {
+      width: 100%;
+      min-height: 44px;
+      margin-top: 6px;
+      border-radius: 8px;
+      border: 1.5px solid #cbd5e1;
+      padding: 10px;
+      font-size: 1.08em;
+      background: #f8fafc;
+      transition: border 0.2s;
+    }
+    .login-panel input:focus {
+      border: 1.5px solid #2563eb;
+      outline: none;
+      background: #fff;
+    }
+    .login-panel button {
+      margin-top: 28px;
+      padding: 12px 32px;
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1em;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #2563eb22;
+      transition: background 0.2s;
+      width: 100%;
+    }
+    .login-panel button:hover { background: #1d4ed8; }
+    .login-panel .error {
+      color: #dc2626;
+      background: #fee2e2;
+      border: 1px solid #fecaca;
+      border-radius: 8px;
+      padding: 10px;
+      margin-top: 18px;
+      margin-bottom: 0;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <form class="login-panel" method="post">
+    <h2><i class="fa-solid fa-user-shield"></i> Admin Login</h2>
+    <% if (typeof error !== 'undefined' && error) { %>
+      <div class="error"><%= error %></div>
+    <% } %>
+    <label for="username">Username</label>
+    <input type="text" name="username" id="username" required autocomplete="username" autofocus>
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" required autocomplete="current-password">
+    <button type="submit"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</button>
+  </form>
+</body>
+</html>

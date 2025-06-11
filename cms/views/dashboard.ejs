@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #e0e7ef 0%, #f1f5f9 100%);
+      font-family: 'Segoe UI', sans-serif;
+      min-height: 100vh;
+    }
+    .dashboard {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 32px #0001;
+      padding: 36px 32px 32px 32px;
+    }
+    h1 {
+      color: #2563eb;
+      text-align: center;
+      margin-bottom: 32px;
+      font-size: 2em;
+    }
+    .dashboard-links {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+    .dashboard-links a {
+      background: #2563eb;
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.2s;
+      box-shadow: 0 2px 8px #2563eb22;
+    }
+    .dashboard-links a:hover { background: #1d4ed8; }
+    pre {
+      background: #f1f5f9;
+      padding: 18px;
+      border-radius: 8px;
+      overflow: auto;
+      font-size: 1.08em;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <h1><i class="fa-solid fa-gauge"></i> Admin Dashboard</h1>
+    <div class="dashboard-links">
+      <a href="/admin/edit"><i class="fa-solid fa-pen-to-square"></i> Edit Content</a>
+      <a href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </div>
+    <pre><%= JSON.stringify(content, null, 2) %></pre>
+  </div>
+</body>
+</html>
