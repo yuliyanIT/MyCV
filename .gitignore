@@ -1,0 +1,10 @@
+# Ignore everything
+*
+
+# Allow specific files and folders
+!.gitignore
+!.env
+!README.md
+!package.json
+!cms/
+!cms/data/content.json
